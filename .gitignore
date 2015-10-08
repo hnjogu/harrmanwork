@@ -1,0 +1,96 @@
+<?php
+	session_start();
+	
+	require("conection/connect.php");
+if(isset($_POST['btn_Send'])){
+$Name = $_POST['Name'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$repypassword = $_POST['repypassword'];
+$like = $_POST['like'];
+$description = $_POST['description'];
+mysql_query("INSERT INTO users 
+	VALUES(NULL,'$Name','$username','$password','$repypassword','$like','$description')");
+if(mysql_query($sql))
+{
+    echo 'User information saved successfully.';
+}else
+{
+    echo 'Error: We encountered an error while inserting the new record please try later.';
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign up - Student center</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<div class="logo">
+				<a href="index.html">Zero Type</a>
+			</div>
+			<ul id="navigation">
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+			<li>
+					<a href="products.html">products</a>
+				</li>
+				<li>
+					<a href="news.html">News</a>
+				</li>
+				<li>
+					<a href="about.html">About</a>
+				</li>
+				<li class="active" >
+					<a href="Sign up.html">Sign up</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="section">
+			<h1>signup here</h1>
+			<p>
+				you sign up here .this is for student only and stuff and other non stuff.
+			</p>
+			<form method="post" class="message">
+				Name:<input type="text" value="Name" name="Name" onFocus="this.select();" onMouseOut="javascript:return false;"/>
+				username:<input type="text" value="username" name="username" onFocus="this.select();" onMouseOut="javascript:return false;"/>
+				password:<br><input type="password" value="password" name="password" onFocus="this.select();" onMouseOut="javascript:return false;"/><br>
+				confirm password:<br><input type="password" value="repypassword" name="repypassword" onFocus="this.select();" onMouseOut="javascript:return false;"/><br>
+				
+				likes:<input type="text" value="like" name="like" onFocus="this.select();" onMouseOut="javascript:return false;"/>
+                
+                Description:<textarea type="text"value="description" name="description" onFocus="this.select();" onMouseOut="javascript:return false;"cols="23" rows="5" required>Description</textarea>
+				<input type="submit" name="btn_Send" value="Send"/>
+			</form>
+		</div>
+		<div class="section contact" size="2">
+        <p> 
+        for more information
+        </p>
+			<p>
+			 contacts us:<div>info@studentcenter.com</div>
+			</p>
+			<p>
+				Or you can visit us at:<div>studentcenter kcau<br> thika road main campus</div>
+			</p>
+		</div>
+	</div>
+	<div id="footer">
+			<div class="clearfix">
+			<div id="connect">
+				
+		  </div>
+			<p>
+				© 2015 student center. All Rights Reserved.
+		  </p>
+		</div>
+	</div>
+</body>
+</html>
